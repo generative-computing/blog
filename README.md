@@ -1,7 +1,5 @@
 # Generative-computing-blog
 
-## TODO
-
 ### Setup environment:
 ```
 brew install rbenv ruby-build
