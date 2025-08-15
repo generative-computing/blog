@@ -1,0 +1,186 @@
+@use "@carbon/grid";
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/**
+ * Basic styling
+ */
+body {
+  font-family: $base-font-family;
+  font-display: swap;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+       -o-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: 1.5rem;
+}
+
+
+
+/**
+ * `main` element
+ */
+main {
+  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/**
+ * Links
+ */
+a {
+  color: var(--cds-link-text-color, var(--cds-link-primary, #0f62fe));
+  transition: color 70ms cubic-bezier(.2,0,.38,.9);
+  vertical-align: initial;
+  text-decoration: underline;
+
+  &:hover {
+    color: #002d9c;
+  }
+}
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: $content-width;
+  @extend %clearfix;
+  margin: 0 1.5rem;
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/**
+ * Tables
+ */
+table {
+  display: block;
+  width: 100%;
+  color: lighten($text-color, 5%);
+  border-collapse: collapse;
+  overflow: auto;
+
+  tr {
+    &:nth-child(even) {
+      background-color: lighten($grey-color-light, 6%);
+    }
+  }
+
+  th, td {
+    padding: .5rem;
+  }
+
+  th {
+    background-color: lighten($grey-color-light, 3%);
+    border: 1px solid darken($grey-color-light, 4%);
+    border-bottom-color: darken($grey-color-light, 12%);
+  }
+
+  td {
+    border: 1px solid $grey-color-light;
+  }
+}
+
+/**
+ * Flex layout
+ */
+%flex {
+  display: flex;
+}
+
+%flex-1 {
+  flex: 1;
+  min-width: 0; /* <-- fix flexbox width with pre tags  */
+}
+
+/**
+ * Flex sticky
+ */
+@mixin flex-sticky($top) {
+  position: sticky;
+  position: -moz-sticky; /* <-- fix sticky compatibility issue */
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: -webkit-sticky;
+  align-self: flex-start; /* <-- fix the sticky not work issue */
+  transform: scale(0.9999); /* <-- fix the sticky x overflow issue */
+  top: $top;
+}
+
+/**
+ * Vertical center
+ */
+@mixin vertical-center($position) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/**
+ * Horizontal center
+ */
+@mixin horizontal-center($position) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/**
+ * Center background image
+ */
+@mixin center-image {
+  height: 100%;
+  max-width: 1000%;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+}

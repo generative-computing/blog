@@ -1,0 +1,261 @@
+@use "@carbon/grid";
+@use "@carbon/type";
+
+h1 {
+  @include type.font-family('sans');
+  @include type.type-style('heading-07');
+}
+
+h2 {
+  @include type.font-family('sans');
+  @include type.type-style('heading-06');
+}
+
+h3 {
+  @include type.font-family('sans');
+  @include type.type-style('heading-04');
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+}
+
+h4, .post-menu-title {
+  @include type.font-family('sans');
+  @include type.type-style('heading-03');
+
+  &.post-menu-title {
+    color: #161616;
+  }
+}
+
+h5, .h-5 {
+  @include type.font-family('sans');
+  @include type.type-style('heading-02');
+}
+
+h6, .page-banner-subheading {
+  @include type.font-family('sans');
+  @include type.type-style('heading-01');
+
+  &.page-banner-subheading {
+    font-weight: 400;
+  }
+}
+
+p, a, ul > li {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+
+code {
+  font-family: "IBM Plex Mono";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
+  letter-spacing: 0.02rem;
+}
+
+pre > code {
+  font-family: "IBM Plex Mono";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem; /* 133.333% */
+  letter-spacing: 0.02rem;
+  border-radius: 1rem;
+  background: var(--Default-Cool-Gray-10, #F2F4F8) !important;
+  text-wrap: auto;
+  padding: 1.5rem !important;
+}
+
+blockquote {
+  margin: 3rem 0;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: var(--Default-Cool-Gray-10, #F2F4F8);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+}
+
+ul {
+  padding-left: 1.5rem;
+
+  li {
+    color: #525252;
+  }
+}
+
+ol {
+  list-style-position: inside;
+}
+
+.post-menu-title {
+  margin-bottom: 0.5rem;
+}
+
+.page-banner-heading {
+  margin-bottom: .5rem;
+  color: #161616;
+}
+
+.page-banner-subheading {
+  color: #525252;
+  margin: 0 !important;
+}
+
+.post-menu {
+  width: 230px;
+}
+
+.page-banner {
+  margin-top: $header-height;
+  height: 413px;
+
+  @include grid.breakpoint('md') {
+    height: 478px;
+  }
+}
+
+sup {
+  vertical-align: inherit;
+  font-size: inherit;
+
+  .footnote {
+    color: #000;
+
+    @include type.font-family('sans');
+    @include type.type-style('body-02');
+    &::before {
+      content: "[";
+    }
+
+    &::after {
+      content: "]";
+    }
+  }
+}
+
+.footnotes {
+  position: relative;
+
+  .footnote-title {
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+    border-bottom: solid 0.0625rem #D9D9D9;
+  }
+
+  .footer-background {
+    position: absolute;
+    left: -50vw;
+    right: -50vw;
+    height: 100%;
+    background: #f9f9f9;
+    z-index: -1;
+  }
+
+  ol {
+    li {
+      font-family: "IBM Plex Sans";
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.25rem; /* 142.857% */
+      letter-spacing: 0.02rem;
+
+      p {
+        display: inline;
+      }
+
+      &::marker {
+        content: "[" counter(list-item) "] ";
+      }
+    }
+  }
+
+  .reversefootnote {
+    display: none;
+  }
+}
+
+.landing-page {
+  margin-top: -3rem;
+}
+
+.post-item {
+  border-bottom: 1px solid #E4E9F1;
+
+
+  a {
+    color: #161616;
+    text-decoration: none;
+  }
+
+  .post-container {
+    padding: 3rem 0;
+
+    .post-info {
+      display: flex;
+      flex-direction: column;
+
+      .post-title {
+        margin-bottom: .5rem;
+      }
+
+      .post-subtitle {
+        margin-bottom: .5rem;
+        color: #525252;
+      }
+
+      .post-meta {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        span {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: #525252;
+
+          .icon {
+            width: 1em;
+            height: 1em;
+          }
+
+          .calendar-icon {
+            background: url('/assets/img/calendar.svg') no-repeat center;
+            background-size: contain;
+          }
+
+          .clock-icon {
+            background: url('/assets/img/clock.svg') no-repeat center;
+            background-size: contain;
+          }
+        }
+        @include grid.breakpoint("md") {
+          display: block;
+
+          span {
+            margin-left: 1rem;
+            padding-right: 1rem;
+          }
+
+          span:first-child {
+            margin-left: 0;
+            border-right: 1px solid #E4E9F1;
+          }
+        }
+      }
+    }
+  }
+}

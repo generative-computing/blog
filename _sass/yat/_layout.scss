@@ -1,0 +1,228 @@
+@use "@carbon/grid";
+@use "@carbon/type";
+
+/**
+ * Animation for transparent header
+ */
+html {
+  &[data-header-transparent] {
+    header.site-header {
+      position: fixed;
+    }
+  }
+
+  &[data-scroll-status='top'] {
+    header.site-header-transparent {
+      height: 0;
+      margin-top: 12px;
+      background-color: transparent;
+      transition: 0.1s height,background-color,box-shadow;
+
+      &.site-header {
+        .site-brand-inner, .page-link {
+          color: #fff;
+          transition: 0.1s color;
+        }
+      }
+    }
+
+    footer.site-footer {
+      color: unset;
+      background-color: transparent;
+
+      .site-footer-inner {
+        border-top: solid 1px #eee;
+      }
+    }
+  }
+
+  &[data-scroll-status='down'] {
+    header.site-header {
+      top: -$header-height;
+    }
+
+    .framework .sidebar {
+      top: 20px;
+    }
+  }
+}
+
+/**
+ * Site header
+ */
+.site-header {
+  background-color: $header-background-color;
+  height: $header-height;
+  width: 100%;
+  transition: height 0.2s, text-shadow 0.2s, top 0.2s;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .06);
+  padding: 0 2rem 0 2rem;
+  right: 0;
+  left: 0;
+
+  // Positioning context for the mobile navigation icon
+  @include flex-sticky(0);
+  z-index: 1000;
+
+  & > .wrapper {
+    margin: 0 20px;
+    padding: 0;
+    max-width: 100%;
+    transition: 0.2s margin;
+
+    @include grid.breakpoint('lg') {
+      margin: 0 60px;
+      max-width: unset;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .site-header-inner {
+    height: $header-height;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .site-title {
+      color: inherit;
+
+      & > h6 {
+        margin: 0;
+      }
+    }
+  }
+}
+
+/**
+ * Page content
+ */
+.page-content {
+  display: flex;
+  justify-content: center;
+  @extend %flex-1; /* <-- Keep footer on the bottom */
+  -ms-flex: none; /* <-- Fix IE footer issue */
+  padding-top: 3rem;
+}
+
+
+/**
+ * Posts
+ */
+.post {
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-wrap: normal;
+    word-wrap: normal;
+    word-break: normal;
+
+
+    img, svg, iframe {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    img:not(.emoji), svg, iframe {
+      display: block;
+      max-height: 50vh;
+    }
+
+    hr {
+      height: 1px;
+      background-color: #ebebeb;
+      border: none;
+      margin: 60px 0;
+    }
+
+  }
+}
+
+/**
+ * Page banner
+ */
+.page-banner {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: $banner-height;
+  background-color: $banner-background;
+  transition: height 0.2s;
+
+  .page-banner-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    & > *:first-child {
+      @include center-image;
+      transition: 0.1s all ease-in-out;
+    }
+
+    & > video {
+      width: 100vw;
+      object-fit: cover;
+    }
+
+    & > img.img-placeholder {
+      display: none;
+    }
+  }
+
+  .page-banner-inner {
+    @include vertical-center(relative);
+
+    padding: 10px 5px;
+
+    & > *:first-child {
+      margin: 0;
+    }
+
+    .post-subtitle {
+      padding-right: 0;
+
+      @include grid.breakpoint('lg') {
+        padding-right: 280px;
+      }
+    }
+
+    .post-meta {
+      padding-bottom: 1em;
+    }
+
+    .left-vsplit:before {
+      background: #e3e3e388;
+    }
+  }
+}
+
+
+/**
+ * Layout and sidebar
+ */
+.framework {
+  @extend %flex;
+  gap: 5rem;
+
+  .main {
+
+    display: contents;
+    @extend %flex-1;
+  }
+
+  .sidebar {
+    display: none;
+    transition: top 0.2s, display 0.2s;
+
+    @include flex-sticky($header-height + 20px);
+
+    @include grid.breakpoint('lg') {
+      display: block;
+    }
+
+  }
+}

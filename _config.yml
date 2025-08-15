@@ -1,0 +1,8 @@
+title: Generative computing blog
+description: >-
+  Generative computing blog
+baseurl: ""
+url: ""
+
+plugins:
+  - jekyll-feed

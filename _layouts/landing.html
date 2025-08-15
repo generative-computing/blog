@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+{%- assign date_format = site.yat.date_format | default: "%b %-d, %Y" -%}
+
+<div class="landing-page">
+    <div class="post-list">
+        {%- for post in site.posts -%}
+            {%- assign article = post.content -%}
+            {%- assign lang = post.lang -%}
+            {%- include functions.html func='get_reading_time' -%}
+            {%- assign reading_time = return -%}
+
+            {%- include functions.html func='get_article_excerpt' -%}
+            {%- assign article_excerpt = return -%}
+            {%- assign post_url = post.url | relative_url -%}
+
+            <div class="post-item">
+                <a href="{{ post_url }}">
+                    <div class="post-container">
+                        <div class="post-info">
+                            <h3 class="post-title">
+                                {{ post.heading | escape }}
+                            </h3>
+                            {% if post.subheading %}
+                                <p class="post-subtitle">
+                                    {{ post.subheading | escape }}
+                                </p>
+                            {% endif %}
+                            <div class="post-meta">
+                                <span class="post-date"><i class="icon calendar-icon"></i> {{ post.date | date: date_format }}</span>
+                                <span class="post-reading-time"><i class="icon clock-icon"></i> {{ reading_time }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {%- endfor -%}
+    </div>
+</div>

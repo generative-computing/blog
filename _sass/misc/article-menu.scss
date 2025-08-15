@@ -1,0 +1,36 @@
+@use "@carbon/grid";
+
+/*
+ * Post menu
+ */
+
+.post-menu {
+  width: 14rem;
+
+
+  .post-menu-content {
+    ul {
+      border-left: 1px solid #DDE1E6;
+
+      a {
+        padding: .5rem 1rem;
+        display: flex;
+        color: #525252;
+        text-decoration: none;
+
+        * {
+          pointer-events: none;
+        }
+
+      }
+
+      .active {
+        transition: background 0.5s;
+        margin-left: -1px;
+        border-left: 1px solid #000;
+        background: var(--Default-Cool-Gray-10, #F2F4F8);
+
+      }
+    }
+  }
+}
