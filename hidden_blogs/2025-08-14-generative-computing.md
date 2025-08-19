@@ -3,9 +3,8 @@ layout: ibm-post
 title: Generative Computing
 heading: "Outside-In and Inside-Out: Imperative, Inductive, and Generative Computing"
 banner:
-  background: "#EDF5FF"
-  height: "15rem"
-hidden: [header]
+  height: "30rem"
+  image: "/assets/img/banner2.png"
 ---
 
 ### Back to Basics: Imperative, Inductive and Generative Computing
