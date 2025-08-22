@@ -103,6 +103,10 @@ ol {
   margin-bottom: 0.5rem;
 }
 
+.page-banner-default {
+  max-width: 38rem;
+}
+
 .page-banner-heading {
   margin-bottom: .5rem;
   color: #161616;
@@ -233,12 +237,17 @@ sup {
           }
 
           .calendar-icon {
-            background: url('/assets/img/calendar.svg') no-repeat center;
+            background: url('/blog/assets/img/calendar.svg') no-repeat center;
+            background-size: contain;
+          }
+
+          .author-icon {
+            background: url('/blog/assets/img/pen.svg') no-repeat center;
             background-size: contain;
           }
 
           .clock-icon {
-            background: url('/assets/img/clock.svg') no-repeat center;
+            background: url('/blog/assets/img/clock.svg') no-repeat center;
             background-size: contain;
           }
         }
@@ -250,9 +259,12 @@ sup {
             padding-right: 1rem;
           }
 
-          span:first-child {
-            margin-left: 0;
+          span:not(:last-child) {
             border-right: 1px solid #E4E9F1;
+          }
+
+          span:first-child {
+            margin-left: 0rem;
           }
         }
       }

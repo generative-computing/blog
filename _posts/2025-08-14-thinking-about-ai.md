@@ -2,9 +2,10 @@
 layout: ibm-post
 title: Generative Computing
 heading: "We’re thinking about AI all wrong"
+author: David Cox
 banner:
-  height: "30rem"
-  image: "/assets/img/banner2.png"
+  metadata: true
+  background: "#DEFBE6"
 ---
 
 So, I recognize that the title of this post may seem a bit provocative, and that’s on purpose. We’ll be presenting an opinionated view on generative AI, in the software engineering sense of the word “opinionated.” It would be difficult to overstate how much of our collective discourse and mental space is occupied by AI today. AI permeates almost every conversation—about business, about society, about geopolitics. Progress in AI technology has been moving at breakneck speed. However, building AI agents and solutions that reliably do what they need to is a lot harder than it should be, and I would argue that there is some real trouble brewing as the world begins to build AI agents to automate mission-critical work.
@@ -18,11 +19,11 @@ Along the way, we will also introduce **Mellea**, an open-source python library 
 
 With our goals defined, let’s get started. In the next few posts, we’ll take a brief look at where the synthesis of generative AI and computing stands today, and we’ll lay out some of the challenges in current practice that led us to our current agenda. The purpose of these critiques is not to tear down or dismiss any of the amazing progress we’ve seen in AI. We’re optimistic about the potential and future of AI. Our goal is to identify problems so that we can fix them, and we’ll present one vision for what those fixes could look like, synthesizing some of our own ideas with a rich body of work from the field at large.
 
-Up next:
-1. **Outside-In and Inside-Out**: Imperative, Inductive, and Generative Computing
-2. **Unreliably Amazing**: Dealing with Unpredictability as a first-class principle in generative computing
-3. **The problem with prompting**: Bringing composability and portability to generative AI
-4. **Everything is data. Everything is also instructions**: examining the curious implicit execution and memory model of LLMs.
+> #### Up next:
+> 1. **Outside-In and Inside-Out**: Imperative, Inductive, and Generative Computing
+> 2. **Unreliably Amazing**: Dealing with Unpredictability as a first-class principle in generative computing
+> 3. **The problem with prompting**: Bringing composability and portability to generative AI
+> 4. **Everything is data. Everything is also instructions**: examining the curious implicit execution and memory model of LLMs.
 
 [^1]: Generative computing also places generative AI in the domain of “tools,” along with the rest of software, which I personally find more realistic, more obviously practical, and frankly less gross than an implicit narrative where the goal is to build human (or super-human) simulacra to replace the organic variety.
 

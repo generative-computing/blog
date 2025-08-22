@@ -4,18 +4,28 @@
 {% assign banner = return %}
 
 {%- if banner.first -%}
-  {%- include functions.html func='log' level='debug' msg='Get banner_image value' -%}
-  {% assign name = 'banner.image' %}
-  {%- include functions.html func='get_value' -%}
-  {% assign banner_image = return | relative_url %}
+{%- include functions.html func='log' level='debug' msg='Get banner_image value' -%}
+{% assign name = 'banner.image' %}
+{%- include functions.html func='get_value' -%}
+{% assign banner_image = return | relative_url %}
 {%- else -%}
-  {% assign banner_image = banner | relative_url %}
+{% assign banner_image = banner | relative_url %}
 {%- endif -%}
 
 {%- include functions.html func='log' level='debug' msg='Get banner_background value' -%}
 {% assign name = 'banner.background' %}
 {%- include functions.html func='get_value' -%}
 {% assign banner_background = return %}
+
+{%- include functions.html func='log' level='debug' msg='Get banner_metadata value' -%}
+{% assign name = 'banner.metadata' %}
+{%- include functions.html func='get_value' -%}
+{% assign banner_metadata = return %}
+
+{%- include functions.html func='log' level='debug' msg='Get banner_heading_style value' -%}
+{% assign name = 'banner.heading_style' %}
+{%- include functions.html func='get_value' -%}
+{% assign banner_heading_style = return %}
 
 {%- include functions.html func='log' level='debug' msg='Get banner_opacity value' -%}
 {% assign name = 'banner.opacity' %}
@@ -63,6 +73,6 @@
 {% assign banner_start_at = return %}
 
 {% if banner_image or banner_video or banner_background %}
-  {% assign has_banner = true %}
+{% assign has_banner = true %}
 {% endif %}
 

@@ -2,9 +2,10 @@
 layout: ibm-post
 title: Generative Computing
 heading: "Outside-In and Inside-Out: Imperative, Inductive, and Generative Computing"
+author: David Cox
 banner:
-  height: "30rem"
-  image: "/assets/img/banner2.png"
+  metadata: true
+  background: "#DEFBE6"
 ---
 
 ### Back to Basics: Imperative, Inductive and Generative Computing

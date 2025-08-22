@@ -226,8 +226,6 @@ html[data-scroll-status=down] .framework .sidebar {
  * Posts
  */
 .post .post-content {
-    display: flex;
-    flex-direction: column;
     height: 100%;
     overflow-wrap: normal;
     word-wrap: normal;
@@ -255,9 +253,13 @@ html[data-scroll-status=down] .framework .sidebar {
     display: flex;
     justify-content: center;
     position: relative;
-    height: 640px;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.8);
     transition: height 0.2s;
+}
+.page-banner .wrapper {
+    display: flex;
+    align-items: center;
 }
 .page-banner .page-banner-img {
     position: absolute;
@@ -282,9 +284,8 @@ html[data-scroll-status=down] .framework .sidebar {
 }
 .page-banner .page-banner-inner {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px 5px;
+    margin-top: 5.5rem;
+    margin-bottom: 5.5rem;
 }
 .page-banner .page-banner-inner > *:first-child {
     margin: 0;
@@ -296,9 +297,6 @@ html[data-scroll-status=down] .framework .sidebar {
     .page-banner .page-banner-inner .post-subtitle {
         padding-right: 280px;
     }
-}
-.page-banner .page-banner-inner .post-meta {
-    padding-bottom: 1em;
 }
 .page-banner .page-banner-inner .left-vsplit:before {
     background: rgba(227, 227, 227, 0.5333333333);
@@ -390,7 +388,7 @@ h1 {
     letter-spacing: var(--cds-heading-07-letter-spacing, 0);
 }
 
-h2 {
+h2, .h2 {
     font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
     font-size: var(--cds-heading-06-font-size, 2.625rem);
     font-weight: var(--cds-heading-06-font-weight, 300);
@@ -480,6 +478,12 @@ blockquote > :last-child {
 blockquote h4 {
     margin-bottom: 1rem;
 }
+blockquote li {
+    font-size: var(--cds-body-02-font-size, 1rem);
+    font-weight: var(--cds-body-02-font-weight, 400);
+    line-height: var(--cds-body-02-line-height, 1.5);
+    letter-spacing: var(--cds-body-02-letter-spacing, 0);
+}
 
 ul {
     padding-left: 1.5rem;
@@ -494,6 +498,10 @@ ol {
 
 .post-menu-title {
     margin-bottom: 0.5rem;
+}
+
+.page-banner-default {
+    max-width: 38rem;
 }
 
 .page-banner-heading {
@@ -512,12 +520,6 @@ ol {
 
 .page-banner {
     margin-top: 48px;
-    height: 413px;
-}
-@media (min-width: 42rem) {
-    .page-banner {
-        height: 478px;
-    }
 }
 
 sup {
@@ -527,10 +529,10 @@ sup {
 sup .footnote {
     color: #000;
     font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
-    font-size: var(--cds-body-02-font-size, 1rem);
-    font-weight: var(--cds-body-02-font-weight, 400);
-    line-height: var(--cds-body-02-line-height, 1.5);
-    letter-spacing: var(--cds-body-02-letter-spacing, 0);
+    font-size: var(--cds-body-01-font-size, 0.875rem);
+    font-weight: var(--cds-body-01-font-weight, 400);
+    line-height: var(--cds-body-01-line-height, 1.42857);
+    letter-spacing: var(--cds-body-01-letter-spacing, 0.16px);
 }
 sup .footnote::before {
     content: "[";
@@ -553,7 +555,7 @@ sup .footnote::after {
     left: -50vw;
     right: -50vw;
     height: 100%;
-    background: #f9f9f9;
+    background: #F2F4F8;
     z-index: -1;
 }
 .footnotes ol li {
@@ -589,6 +591,7 @@ sup .footnote::after {
     padding: 3rem 0;
 }
 .post-item .post-container .post-info {
+    max-width: 48rem;
     display: flex;
     flex-direction: column;
 }
@@ -599,39 +602,50 @@ sup .footnote::after {
     margin-bottom: 0.5rem;
     color: #525252;
 }
-.post-item .post-container .post-info .post-meta {
+
+.post-meta {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
 }
-.post-item .post-container .post-info .post-meta span {
+.post-meta span {
+    font-size: var(--cds-body-02-font-size, 1rem);
+    font-weight: var(--cds-body-02-font-weight, 400);
+    line-height: var(--cds-body-02-line-height, 1.5);
+    letter-spacing: var(--cds-body-02-letter-spacing, 0);
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
     color: #525252;
 }
-.post-item .post-container .post-info .post-meta span .icon {
+.post-meta span .icon {
     width: 1em;
     height: 1em;
 }
-.post-item .post-container .post-info .post-meta span .calendar-icon {
-    background: url("/assets/img/calendar.svg") no-repeat center;
+.post-meta span .calendar-icon {
+    background: url("/blog/assets/img/calendar.svg") no-repeat center;
     background-size: contain;
 }
-.post-item .post-container .post-info .post-meta span .clock-icon {
-    background: url("/assets/img/clock.svg") no-repeat center;
+.post-meta span .author-icon {
+    background: url("/blog/assets/img/pen.svg") no-repeat center;
+    background-size: contain;
+}
+.post-meta span .clock-icon {
+    background: url("/blog/assets/img/clock.svg") no-repeat center;
     background-size: contain;
 }
 @media (min-width: 42rem) {
-    .post-item .post-container .post-info .post-meta {
+    .post-meta {
         display: block;
     }
-    .post-item .post-container .post-info .post-meta span {
+    .post-meta span {
         margin-left: 1rem;
         padding-right: 1rem;
     }
-    .post-item .post-container .post-info .post-meta span:first-child {
-        margin-left: 0;
-        border-right: 1px solid #E4E9F1;
+    .post-meta span:not(:last-child) {
+        border-right: 1px solid #878D96;
+    }
+    .post-meta span:first-child {
+        margin-left: 0rem;
     }
 }
