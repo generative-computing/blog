@@ -17,3 +17,12 @@ banner:
 
     </section>
 </div>
+
+
+<script>
+    function changeFooter() {
+        var footer = document.querySelector('.footnotes')
+        footer.innerHTML = '<div class="footer-background"></div><h4 class="footnote-title">References</h4>' + footer.innerHTML
+    }
+    changeFooter();
+</script>
