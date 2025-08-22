@@ -615,7 +615,7 @@ sup .footnote::after {
     letter-spacing: var(--cds-body-02-letter-spacing, 0);
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
     color: #525252;
 }
 .post-meta span .icon {
@@ -636,7 +636,7 @@ sup .footnote::after {
 }
 @media (min-width: 42rem) {
     .post-meta {
-        display: block;
+        flex-direction: row;
     }
     .post-meta span {
         margin-left: 1rem;
