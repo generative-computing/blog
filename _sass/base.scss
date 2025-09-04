@@ -161,8 +161,8 @@ sup {
 
   .footer-background {
     position: absolute;
-    left: -50vw;
-    right: -50vw;
+    width: 100vw;
+    left: min(-1.5rem, calc(($content-width - 100vw) / 2));
     height: 100%;
     background: #f9f9f9;
     z-index: -1;
